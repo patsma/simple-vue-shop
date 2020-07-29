@@ -14,13 +14,42 @@
 <div id="app">
     <div class="product">
         <div class="product-image">
-            <img v-bind:src="image">
+            <img :src="image" :alt="description">
         </div>
-        <h1>{{product}}</h1>
-        <h2>{{description}}</h2>
+        <div class="product-info">
+            <h1>{{title}}</h1>
+            <h2>{{description}}</h2>
+            <p v-show="inStock">In stock</p>
+            <p v-show="onSale">{{brandProduct}}</p>
+            <p :class="{outOfStock: inStock}"
+            >Out of Stock</p>
+            <a :href="link">This is tha link</a>
+            <ul>
+                <li v-for="detail in details">{{detail}}</li>
+            </ul>
+            <div v-for="(variant, index) in variants"
+                 :key="variant.variantId"
+                 class="color-box"
+                 :style="{backgroundColor:variant.variantColor}"
+                 @mouseover="updateProduct(index)"
+            >
+            </div>
+            <div v-for="size in sizes">
+                <p>{{size}}</p>
+            </div>
+
+            <button :disabled="!inStock"
+                    :class="{ disabledButton: !inStock }"
+                    @click="addToCart">Add to Cart
+            </button>
+            <button @click="removeFromCart">Remove from Cart</button>
+            <div class="cart">
+                <p>Cart ({{cart}})</p>
+            </div>
+        </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="vue.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
