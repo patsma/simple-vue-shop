@@ -91,3 +91,8 @@ textarea {
 .outOfStock {
     text-decoration: line-through;
 }
+
+.buttons {
+    display: grid;
+    grid-auto-flow: column;
+}
