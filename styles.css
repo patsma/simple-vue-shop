@@ -10,6 +10,7 @@ body {
     margin-bottom: 15px;
 }
 
+
 .product {
     display: flex;
     flex-flow: wrap;
@@ -78,7 +79,7 @@ textarea {
     height: 60px;
 }
 
-.tab {
+.tabs {
     margin-left: 20px;
     cursor: pointer;
 }
@@ -86,13 +87,4 @@ textarea {
 .activeTab {
     color: #16C0B0;
     text-decoration: underline;
-}
-
-.outOfStock {
-    text-decoration: line-through;
-}
-
-.buttons {
-    display: grid;
-    grid-auto-flow: column;
 }
